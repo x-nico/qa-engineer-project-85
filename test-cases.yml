@@ -1,1 +1,18 @@
-
+---
+- summury: |
+    Проверка регистрации по Email
+requirement: |
+    Пользователь должен иметь возможность зарегистрироваться с помощью Email
+prerequisites: |
+    Открыта страница https://codebattle.hexlet.io/
+test-data: |
+    Empty
+steps: 
+    - Нажать кнопку Sign Up
+    - Ввести Nickname 
+    - Ввести Email
+    - Ввести Password
+    - Ввести Password Confirmation
+    - Нажать кнопку Submit
+expected-result: |
+    Регистрация успешна, редирект на https://codebattle.hexlet.io/
