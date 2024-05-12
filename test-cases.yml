@@ -16,3 +16,504 @@ steps:
     - Нажать кнопку Submit
 expected-result: |
     Регистрация успешна, редирект на https://codebattle.hexlet.io/
+    
+- summary: |
+    Проверка авторизации с помощью Email
+requirement: |
+    Пользователь должен иметь возможность авторизовываться с помощью Email
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/
+test-data: |
+    no data
+steps:
+    - Нажать кнопу Sign In
+    - Ввести Email
+    - Ввести Password
+    - нажать кнопку Submit
+expected-result: |
+    Авторизация успешна, редирект на https://codebattle.hexlet.io/
+    
+- summary: |
+    Проверка авторизации с помощью Github
+requirement: |
+    Пользователь должен иметь возможность авторизовываться с помощью Github
+prerequisites:
+    У пользователя должна быть создана учетная запись в Github, открыта страница https://codebattle.hexlet.io/
+test-data: |
+    no data
+steps:
+    - Нажать кнопу Sign In
+    - Нажать кнопку Sign in with Github
+expected-result: |
+    Авторизация успешна, редирект на https://codebattle.hexlet.io/
+    
+- summary: |
+    Проверка авторизации с помощью Discord
+requirement: |
+    Пользователь должен иметь возможность авторизовываться с помощью Discord
+prerequisites:
+    У пользователя должна быть создана учетная запись в Discord, открыта страница https://codebattle.hexlet.io/
+test-data: |
+    no data
+steps:
+    - Нажать кнопу Sign In
+    - Нажать кнопку Sign in with Discord
+    - В окне Discord нажать Авторизовать
+expected-result: |
+    Авторизация успешна, редирект на https://codebattle.hexlet.io/
+    
+- summary: |
+    Проверка создания игры без авторизации
+requirement: |
+    Пользователь должен иметь возможность создавать игру без авторизации 
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация не выполнена
+test-data: |
+    no data
+steps:
+    - Нажать кнопу TRY SIMPLE BATTLE
+expected-result: |
+    Игра успешно создана, открыта комната матча
+    
+- summary: |
+    Проверка создания игры
+requirement: |
+    Пользователь должен иметь возможность создавать игру
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена
+test-data: |
+    no data
+steps:
+    - Нажать кнопу CREATE A GAME
+    - Выбрать Level 2 звезды
+    - Выбрать Game Type With a bot
+    - Выбрать Time control 20 min
+    - Выбрать произвольно Choose task by name or tags
+    - Нажать кнопку Create battle
+expected-result: |
+    Игра успешно создана, открыта комната матча
+    
+- summary: |
+    Проверка возможности выбирать язык программирования
+requirement: |
+    Пользователь должен иметь возможность выбирать язык программирования в игре
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча  
+test-data: |
+    no data
+steps:
+    - Открыыть выпадающий список языков программирования
+    - Выбрать язык (например Java 21)
+expected-result: |
+    Язык успешно изменен, изменился шаблон в окне редактора
+    
+- summary: |
+    Проверка возможность пользователя сдаться в игре
+requirement: |
+    Пользователь должен иметь возможность сдаться в игре
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча
+test-data: |
+    no data
+steps:
+    - Нажать кнопку Give up
+    - Подтвердить действие нажатием кнопки Give up
+expected-result: |
+    Отображается окно с сообщением If you read this you've lost the game
+    
+- summary: |
+    Проверка возможности сбросить код до исходного шаблона
+requirement: |
+    Пользователь должен иметь возможность сбросить код до исходного шаблона
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча
+test-data: |
+    no data
+steps:
+    - Произвольно изменить код в окне редактора
+    - Нажать кнопку Reset editor
+expected-result: |
+    Код вернулся в исходное состояние
+    
+- summary: |
+    Проверка возможности проверить свое решение
+requirement: |
+    Пользователь должен иметь возможность проверить свое решение
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена 
+test-data: |
+    no data
+steps:
+    - Нажать кнопу CREATE A GAME
+    - Выбрать Level 1 звезда
+    - Выбрать Game Type With a bot
+    - Выбрать Time control 10 min
+    - Выбрать react_area в Choose task by name or tags
+    - Нажать кнопку Create battle
+    - Дописать код, чтобы он выглядел следующим образом 
+        #const _ = require("lodash");#
+        #const R = require("rambda");#
+        
+        #const solution = (width, length) => {#
+          #return width * length;#
+        #};'#
+        
+        #module.exports = solution;#
+    - Нажать кнопку Run
+expected-result: |
+    Выводиться окно с сообщением Woohoo, you're Champion!!!!!
+    
+- summary: |
+    Проверка возможности проверить свое решение
+requirement: |
+    Пользователь должен иметь возможность проверить свое решение
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча
+test-data: |
+    no data
+steps:
+    - Не меняя код нажать Cntrl+Enter
+expected-result: |
+    Открывается вкладка Output, выводятся сообщения об ошибке
+    
+- summary: |
+    Проверка возможности создавать турниры
+requirement: |
+    Пользователь должен иметь возможность создавать турниры
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена
+test-data: |
+    no data
+steps:
+    - Выбрать вкладку TOURNAMENTS 
+    - Нажать You may want to create one
+    - Произвольно заполнить поля раздела Create a new tournament
+    - Нажать кнопку Create
+expected-result: |
+    Турнир успешно создан, открыта страница турнира
+    
+- summary: |
+    Проверка возможности просматривать историю игр
+requirement: |
+    Пользователь должен иметь возможность просматривать историю игр
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена
+test-data: |
+    no data
+steps:
+    - Выбрать вкладку HISTORY 
+    - Произвольно выбрать игру
+    - Нажать кнопку Show
+expected-result: |
+    Открылась комната матча, можно просматривать историю
+    
+- summary: |
+    Проверка возможности просматривать завершенные турниры 
+requirement: |
+    Пользователь должен иметь возможностьпросматривать завершенные турниры 
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена
+test-data: |
+    no data
+steps:
+    - Выбрать вкладку TOURNAMENTS 
+    - Произвольно выбрать игру
+    - Нажать кнопку Show
+expected-result: |
+    Открыта страница турнира
+    
+- summary: |
+    Проверка возможности создавать игру против случайного пользователя
+requirement: |
+    Пользователь должен иметь возможность создавать игру против случайного пользователя
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена
+test-data: |
+    no data
+steps:
+    - Нажать кнопу CREATE A GAME
+    - Выбрать Level 3 звезды
+    - Выбрать Game Type With other user
+    - Выбрать Time control 60 min
+    - Выбрать random task в Choose task by name or tags
+    - Нажать кнопку Create battle
+    - Нажать кнопку CONTINUE
+expected-result: |
+    Успешное создание игры, отбражается сообщение Waiting for an opponent Please wait for someone to join or send an invite using the link below
+    
+- summary: |
+    Проверка переключения языка описания задания
+requirement: |
+    Пользователь должен иметь возможность простматривать задание на Русском или Англиском языках
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча  
+test-data: |
+    no data
+steps:
+    - Открыыть выпадающий список языков
+    - Выбрать RU
+    - Выбрать EN
+expected-result: |
+    Описание задания успешно переключается с одного языка на другой
+    
+- summary: |
+    Проверка окончания игры по истичении времени
+requirement: |
+    По истечении времени игра должна прекращаеться
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча  
+test-data: |
+    no data
+steps:
+    - Нажать кнопу CREATE A GAME
+    - Выбрать Game Type With a bot
+    - Выбрать Time control 3 min
+    - Нажать кнопку Create battle
+    - Ожидать 3 минуты
+expected-result: |
+    Отображается сообщение Time is up. There are no winners in the game
+    
+- summary: |
+    Проверка отправки приглашения друга в игру
+requirement: |
+    Пользователь должен иметь возможность создавать игру против друга
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопу CREATE A GAME
+    - Выбрать Game Type With a friend
+    - Выбрать друга в Choose opponent
+    - Нажать кнопку Create invite
+    - Нажать на кнопку приглашения в игру 
+expected-result: |
+    Изменился счетчик приглашений на кнопке приглашения в игру, отображается сообщение You invited "имя пользователя"
+    
+- summary: |
+    Проверка получения приглашения от друга в игру
+requirement: |
+    Пользователь должен иметь возможность создавать игру против друга
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать на кнопку приглашения в игру 
+    - Нажать Accept 
+expected-result: |
+    Игра началась, оба пользователя успешно добавлены в комнату игры
+    
+- summary: |
+    Проверка отправки сообщения в комнате игры
+requirement: |
+    Пользователи должены иметь возможность отправлять сообщения в комнате игры
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация 2х пользователей в разных браузерах, пользователи добавлены в одну игру    
+test-data: |
+    no data
+steps:
+    - Ввести в форму отправки текст сообщения 
+    - Нажать Send
+expected-result: |
+    Сообщение успешно отправлено, оба пользователя видят сообщение
+    
+- summary: |
+    Проверка изменения кода соперника в реальном времени
+requirement: |
+    Пользователи должены иметь возможность видеть изменения кода соперника в реальном времени
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация 2х пользователей в разных браузерах, пользователи добавлены в одну игру    
+test-data: |
+    no data
+steps:
+    - Пользователь 1
+    - Изменить код в редакторе    
+expected-result: |
+    Пользователь 2 видит изменения кода в реальном времени
+    
+- summary: |
+    Проверка возможности присоединиться к игре в лобби
+requirement: |
+    Пользователь должен иметь возможность присоединиться к игре в лобби
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация   
+test-data: |
+    no data
+steps:    
+    - Выбрать созданную игру в лобби 
+    - Нажать кнопку Fight
+expected-result: |
+    Успешное присоединение к игре
+    
+- summary: |
+    Проверка возможности отправлять сообщения другим пользователям находящимся онлайн
+requirement: |
+    Пользователь должен иметь возможность отправлять сообщения другим пользователям находящимся онлайн
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация 2х пользователей в разных браузерах
+test-data: |
+    no data
+steps:    
+    - Пользователь 1
+    - Нажать на имя пользователя 2 в списке Online players
+    - Нажать Direct message 
+    - В вести в форму отправки сообщения текст
+    - Нажать кнопку Send 
+expected-result: |
+    Пользователь 2 видит сообщение от пользователя 1
+    
+- summary: |
+    Проверка переключения редактора кода в Vim режим
+requirement: |
+    Пользователь должен иметь возможность переключать редактор кода в Vim режим
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку Vim
+    - Выбрать язык (например Java 21)
+expected-result: |
+    Vim режим успешно включен, отображается --NORMAL-- в редакторе кода
+    
+- summary: |
+    Проверка возможности просматривать статистикку своих игр
+requirement: |
+    Пользователь должен иметь возможность просматривать статистикку своих игр 
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку профиля
+    - Нажать кнопку My profile
+    - Нажать кнопку COMPLETED GAMES
+expected-result: |
+    Отображается статистика пользователя и завершенные игры
+    
+- summary: |
+    Проверка возможности просматривать рейтинг пользователей 
+requirement: |
+    Пользователь должен иметь возможность просматривать рейтинг пользователей 
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку Top list в колонке LEADERBOARD
+expected-result: |
+    Успешно отображается рейтинг пользователей
+    
+- summary: |
+    Проверка возможности менять тип звука
+requirement: |
+    Пользователь должен иметь возможность менять тип звука
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку профиля
+    - Нажать кнопку Settings
+    - Нажать чек-бокс например CS
+    - Нажать кнопку Save
+expected-result: |
+    Настройки успешно изменены, отображается сообщение Your settings has been changed
+    
+- summary: |
+    Проверка возможности менять уровень звука
+requirement: |
+    Пользователь должен иметь возможность менять уровень звука
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку профиля
+    - Нажать кнопку Settings
+    - Сдвинуть ползунок Select sound level в любую сторону
+    - Нажать кнопку Save
+expected-result: |
+    Громкость звука изменилась, отображается сообщение Your settings has been changed
+    
+- summary: |
+    Проверка возможности менять имя пользователя
+requirement: |
+    Пользователь должен иметь возможность менять имя пользователя
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку профиля
+    - Нажать кнопку Settings
+    - Изменить имя профиля в форме Your name
+    - Нажать кнопку Save
+expected-result: |
+    Имя пользователя успешно изменено, отображается сообщение Your settings has been changed
+    
+- summary: |
+    Проверка возможности менять используемый язык программирования
+requirement: |
+    Пользователь должен иметь возможность менять используемый язык программирования  
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку профиля
+    - Нажать кнопку Settings
+    - В выпадающем списке Your weapon выбрать ЯП например GO
+    - Нажать кнопку Save
+expected-result: |
+    Язык программирования успешно изменен, отображается сообщение Your settings has been changed
+    
+- summary: |
+    Проверка возможности менять клан
+requirement: |
+    Пользователь должен иметь возможность менять клан 
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку профиля
+    - Нажать кнопку Settings
+    - Изменить клан в форме Your clan
+    - Нажать кнопку Save
+expected-result: |
+    Настройки успешно изменены, отображается сообщение Your settings has been changed
+    
+- summary: |
+    Проверка возможности создавать задания 
+requirement: |
+    Пользователь должен иметь возможность создавать задания 
+prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, выполнена авторизация  
+test-data: |
+    no data
+steps:
+    - Нажать кнопку профиля
+    - Нажать кнопку Tasks
+    - Нажать кнопку Create new tasks
+    - Ввести уникальное имя задания
+    - Произвольно заполнить обязательные параметры
+    - Нажать кнопку Upload
+    - Нажать кнопку Upload task
+expected-result: |
+    Задание успешно создано
+    
+- summary: |
+    Проверка возможности вернуться к незавершенной игре 
+  requirement: |
+    Пользователь должен иметь возможность вернуться к незавершенной игре 
+  prerequisites:
+    Открыта страница https://codebattle.hexlet.io/, авторизация  выполнена, игра успешно создана, открыта комната матча  
+  test-data: |
+    no data
+  steps:
+    - Нажать кнопку Back to home 
+    - Нажать кнопку CONTINUE 
+  expected-result: |
+    Успешное возвращение к игре
