@@ -137,6 +137,7 @@
     - Выбрать Time control 10 min
     - Выбрать react_area в Choose task by name or tags
     - Нажать кнопку Create battle
+    - Выбрать подходящий язык программирования из предложенного списка
     - Дописать код, чтобы он выглядел следующим образом
     - Нажать кнопку Run
   expected-result: |
