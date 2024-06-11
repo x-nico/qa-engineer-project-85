@@ -15,7 +15,7 @@
     - Ввести Password Confirmation
     - Нажать кнопку Submit
   expected-result: |
-    Регистрация успешна, редирект на https://codebattle.hexlet.io/
+    Регистрация успешна, пользователь в лобби в правом верхнем углу видит свой никнейм, который указал при регистрации, редирект на https://codebattle.hexlet.io/
 - summary: |
     Проверка авторизации с помощью Email
   requirement: |
