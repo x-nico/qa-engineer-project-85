@@ -29,7 +29,7 @@
     - Ввести Password
     - нажать кнопку Submit
   expected-result: |
-    Авторизация успешна, редирект на https://codebattle.hexlet.io/
+    Авторизация успешна, пользователь в лобби видит в правом верхнем углу свой никнейм, который указал при регистрации, редирект на https://codebattle.hexlet.io/
 - summary: |
     Проверка авторизации с помощью Github
   requirement: |
